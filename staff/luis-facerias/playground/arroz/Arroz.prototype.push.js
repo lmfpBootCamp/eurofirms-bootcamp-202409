@@ -2,14 +2,23 @@
 // ARROZ.PROTOTYTPE.PUSH
 
 
-// Implementación de push de la función Array, 
-// para insertar elemento al final de un objeto
+// Implementation of the Arroz function push,
+// to insert an element at the end of an object
 
 var Arroz = function() { this.length = 0 }
 
-Arroz.prototype.push = function (element) {
+/*Arroz.prototype.push = function (element) {
     this[this.length] = element
     this.length++
+    return this.length
+}*/
+
+Arroz.prototype.push = function () {
+    for (var i = 0; i < arguments.length; i++){
+        var element = arguments[i]
+        this[this.length] = element
+        this.length++
+    }
     return this.length
 }
 
@@ -41,6 +50,23 @@ chars.length = 5
 
 var length = chars.push('F')
 console.log(chars)
-// Arroz { '0': 'A', '1': 'B', '2': 'C', '3': 'D', '4': 'E', '5': 'F', length: 4 }
+// Arroz { '0': 'A', '1': 'B', '2': 'C', '3': 'D', '4': 'E', '5': 'F', length: 6 }
 console.log(length)
 // 6
+
+
+console.log('CASE add multiple elements inside the array')
+
+var chars = new Arroz
+chars[0] = 'red'
+chars[1] = 'green'
+chars[2] = 'black'
+chars[3] = 'blue'
+chars[4] = 'magenta'
+chars.length = 5
+
+var length = chars.push('yellow', 'orange', 'pink', 'cyan')
+console.log(chars)
+//Arroz { '0': 'red', '1': 'green', '2': 'black', '3': 'blue', '4': 'magenta', '5': 'yellow', '6': 'orange', '7': 'pink', '8': 'cyan', length: 9 }
+console.log(length)
+// 9
