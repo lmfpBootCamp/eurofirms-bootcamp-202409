@@ -17,14 +17,13 @@ Arroz.prototype.concat = function(values) {
     // Append in finalArr other array
     if (arguments.length > 0) {
         for (var i = 0; i < arguments.length; i++) {
-            var dim = finalArr.length
+            var dim_finalArr = finalArr.length
             for (var j = 0; j < arguments[i].length; j++){
-                finalArr[dim + j] = arguments[i][j]
+                finalArr[dim_finalArr + j] = arguments[i][j]
             }
         }
     }
     return finalArr
-
 }
 
 // Check if concat merge two or more arrays
@@ -39,7 +38,7 @@ lowerChar[4] = 'e'
 lowerChar.length = 5
 //concatlowerChar = lowerChar.concat()
 //console.log(concatlowerChar)
-//
+//[ 'a', 'b', 'c', 'd', 'e' ]
 
 
 var upperChar = new Arroz
@@ -51,7 +50,7 @@ upperChar[4] = 'E'
 upperChar.length = 5
 //concatlowerChar = upperChar.concat(lowerChar)
 //console.log(concatlowerChar)
-// 
+// [ 'A', 'B', 'C', 'D', 'E', 'a', 'b', 'c', 'd', 'e' ]
 
 var num = new Arroz
 num[0] = '1'
@@ -62,4 +61,4 @@ num[4] = '5'
 num.length = 5
 concatlowerChar = num.concat(lowerChar, upperChar)
 console.log(concatlowerChar)
-// 
+// [ '1', '2', '3', '4', '5', 'a', 'b', 'c', 'd', 'e', 'A', 'B', 'C', 'D', 'E' ]
