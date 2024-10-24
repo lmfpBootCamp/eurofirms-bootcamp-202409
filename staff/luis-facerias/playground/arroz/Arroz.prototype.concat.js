@@ -1,5 +1,4 @@
 // ARROZ.PROTOTYTPE.CONCAT
-https://medium.com/@abdullahmalek/build-javascripts-array-concat-5aa60870aa11
 
 // Implementation of the Arroz function concat
 // returns one or more merged arrays
