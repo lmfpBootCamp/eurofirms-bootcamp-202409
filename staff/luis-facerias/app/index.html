@@ -68,7 +68,8 @@
     <script>
         var users = []
 
-
+        users[0] = {name: "luis", email: "luis@luis.es", username: "luis", password: "luispwd"}
+        users[1] = {name: "pepe", email: "pepe@pepe.es", username: "pepe", password: "pepepwd"}
 
         var sections = document.querySelectorAll('section')
 
@@ -130,7 +131,15 @@
             var username = registerFormUsernameInput.value
             var password = registerFormPasswordInput.value
 
-            console.log(name, email, username, password)
+            var user = users.find(function (user) {
+                return user.email === email || user.username === username
+            })
+
+            if (user != undefined) {
+                alert('user already exists')
+            
+                return
+            }
 
             var user = {}
             user.name = name
@@ -146,6 +155,34 @@
             loginSection.style.display = ''
 
         })
+
+        var loginForm = loginSection.querySelector('form')
+        loginForm.addEventListener('submit', function (event) {
+            event.preventDefault()
+
+            var loginFormInputs = loginForm.querySelectorAll('input')
+            var loginFormUsernameInput = loginFormInputs[0]
+            var loginFormPasswordInput = loginFormInputs[1]
+
+            var username = loginFormUsernameInput.value
+            var password = loginFormPasswordInput.value
+
+            var user = users.find(function (user) {
+                return user.username === username && user.password === password
+            })
+
+            if (user === undefined) {
+                alert('wrong credentials')
+
+                return
+            }
+            loginSection.style.display = 'none'
+            homeSection.style.display = ''
+        })
+
+
+
+
     </script>
 </body>
 
