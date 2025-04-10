@@ -1,7 +1,7 @@
 import 'dotenv/config'
 const { API_PORT } = process.env
 
-console.log(process.env)
+//console.log(process.env)
 
 import express from 'express'
 
